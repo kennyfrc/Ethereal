@@ -24,7 +24,7 @@
 
 #include "board.h"
 #include "evalcache.h"
-#include "network.h"
+
 #include "search.h"
 #include "transposition.h"
 #include "types.h"

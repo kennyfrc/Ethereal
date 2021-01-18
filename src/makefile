@@ -17,7 +17,7 @@
 CC      = gcc
 SRC     = *.c pyrrhic/tbprobe.c
 LIBS    = -lpthread -lm
-EXE     = Ethereal
+EXE     = ethdev
 
 WFLAGS = -std=gnu11 -Wall -Wextra -Wshadow
 CFLAGS = -O3 $(WFLAGS) -DNDEBUG -flto -march=native

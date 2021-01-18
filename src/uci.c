@@ -32,8 +32,7 @@
 #include "masks.h"
 #include "move.h"
 #include "movegen.h"
-#include "network.h"
-#include "nneval.h"
+
 #include "search.h"
 #include "thread.h"
 #include "time.h"
@@ -49,7 +48,6 @@ extern unsigned TB_PROBE_DEPTH;   // Defined by syzygy.c
 extern volatile int ABORT_SIGNAL; // Defined by search.c
 extern volatile int IS_PONDERING; // Defined by search.c
 extern volatile int ANALYSISMODE; // Defined by search.c
-extern PKNetwork PKNN;            // Defined by network.c
 
 pthread_mutex_t READYLOCK = PTHREAD_MUTEX_INITIALIZER;
 const char *StartPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -68,7 +66,6 @@ int main(int argc, char **argv) {
     // Initialize core components of Ethereal
     initAttacks(); initMasks(); initEval();
     initSearch(); initZobrist(); initTT(16);
-    initPKNetwork(&PKNN); initEndgameNNs();
 
     // Create the UCI-board and our threads
     threads = createThreadPool(1);
