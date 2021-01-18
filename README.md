@@ -3,9 +3,9 @@
 This Ethereal fork modifies the evaluation function to use [GM Igor Smirnov's chess principles](https://online.chess-teacher.com/).
 
 New evaluation terms:
-* Weak square bonus (occupying it)
+* Occupying weak squares
 * Attack / Defend weak square
-* Weak square presence
+* Presence of weak squares
 * Mobility bonus for OCB
 * Connected Rooks
 * PSQTs for both midgame and endgame are now in accordance with human-known principles
