@@ -14,14 +14,12 @@
 */
 
 
-// mods
+// Modifications done
 // material value reduction to buff activity
 // weak squares, mobility, attacked weak squares
 // connected rooks, threats
 // ocb adjustments
 // space adjustments
-
-// done
 // activity bonus
 // backward pawns
 // weak squares - 5th or 6th rank
@@ -78,11 +76,6 @@
 // - in general 1 bishop / 1 knight < 1 rook
 // - endgame 1 bishop ~= 1 rook
 // - endgame 1 bishop > 1 knight
-
-// general 
-// pawn majority rules
-// endgame
-// king restrictions
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -535,8 +528,7 @@ int evaluateBoard(Thread *thread, Board *board) {
     initEvalInfo(thread, board, &ei);
     eval = evaluatePieces(&ei, board);
 
-    pkeval = 0;
-
+    pkeval = ei.pkeval[WHITE] - ei.pkeval[BLACK];;
     eval += pkeval + board->psqtmat;
     eval += evaluateClosedness(&ei, board);
     eval += evaluateComplexity(&ei, board, eval);
