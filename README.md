@@ -1,3 +1,28 @@
+# EtherealMod
+
+This Ethereal fork modifies the evaluation function to use [GM Igor Smirnov's chess principles](https://online.chess-teacher.com/).
+
+New evaluation terms:
+* Weak square bonus (occupying it)
+* Attack / Defend weak square
+* Weak square presence
+* Mobility bonus for OCB
+* Connected Rooks
+* PSQTs for both midgame and endgame are now in accordance with human-known principles
+
+The below evaluation terms were removed due to these being non-orthogonal (or it duplicates PSQT).
+* Knight behind pawn
+* Knight at the rim
+* Bishop outpost (bishops are best used to defend outposts, not occupy them)
+* Some threats: ThreatMinorAttackedByMinor, ThreatMinorAttackedByMajor, ThreatMinorAttackedByKing, ThreatRookAttackedByKing, ThreatOverloadedPieces, ThreatByPawnPush 
+* RookOnSeventh (it double counts the PSQT)
+* Some overloading terms
+* Undefended pawn push
+
+Full details of changes are in this [commit](https://github.com/kennyfrc/EtherealMod/commit/6b3a6982ae2c3f6c6d32aba7509b1b812db32e9a) - see `evaluate.c`.
+
+---
+
 # Ethereal
 
 Ethereal is a UCI-compliant chess engine which uses the alpha-beta framework. Ethereal is inspired by a number of open source projects and aims to serve as both a high-end engine and reference for other authors. The project strives to keep the source and its ideas, however complex, clean and digestible. To read more about some of the techniques used in Ethereal, see [Ethereal's Chess Programming Wiki Page](https://www.chessprogramming.org/Ethereal)
